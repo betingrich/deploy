@@ -3,143 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deploy Mercedes</title>
+  <title>Deploy Mercedes Bot</title>
   <style>
     body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
       font-family: Arial, sans-serif;
-      background-size: cover;
-      animation: changeBackground 15s infinite;
-      color: #fff;
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: white;
       text-align: center;
+      padding: 20px;
     }
 
-    @keyframes changeBackground {
-      0%, 100% { background-image: url('https://files.catbox.moe/s3scze.jpg'); }
-      25% { background-image: url('https://i.imgur.com/pF8gJNk.jpeg'); }
-      50% { background-image: url('https://i.imgur.com/jYnC23z.jpeg'); }
-      75% { background-image: url('https://files.catbox.moe/ntr8xp.jpg'); }
+    h1, h2 {
+      margin-bottom: 20px;
     }
 
-    .button {
-      background-color: #1c1c1c;
-      border: 2px solid #fff;
-      border-radius: 5px;
-      color: #fff;
-      padding: 10px 20px;
-      text-decoration: none;
-      font-size: 16px;
-      margin: 10px;
-      display: inline-block;
-      transition: background-color 0.3s, color 0.3s;
+    p {
+      margin-bottom: 20px;
     }
 
-    .button:hover {
-      background-color: #fff;
-      color: #1c1c1c;
+    ul {
+      list-style: none;
+      padding: 0;
     }
 
-    .neon-border {
-      border: 2px solid;
-      border-radius: 5px;
+    ul li {
+      margin-bottom: 15px;
+      text-align: left;
       padding: 10px;
-      margin: 20px 0;
-      animation: neonBorder 3s infinite;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      position: relative;
     }
 
-    @keyframes neonBorder {
-      0% { border-color: #ff00ff; box-shadow: 0 0 10px #ff00ff; }
-      25% { border-color: #00ffff; box-shadow: 0 0 10px #00ffff; }
-      50% { border-color: #ff8000; box-shadow: 0 0 10px #ff8000; }
-      75% { border-color: #8000ff; box-shadow: 0 0 10px #8000ff; }
-      100% { border-color: #ff00ff; box-shadow: 0 0 10px #ff00ff; }
+    ul li::before {
+      content: attr(data-number);
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #ff00ff;
+      position: absolute;
+      left: -40px;
+      top: 10px;
+      background: linear-gradient(45deg, #ff00ff, #00ffff);
+      padding: 5px 10px;
+      border-radius: 50%;
+    }
+
+    .btn {
+      --color: white;
+      --color2: #0E0E0E;
+      width: 260px;
+      padding: 0.8em 1.75em;
+      background-color: transparent;
+      border-radius: 50px;
+      border: 3px solid transparent;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      z-index: 1;
+      font-weight: 300;
+      font-size: 17px;
+      font-family: 'Roboto', 'Segoe UI', sans-serif;
+      text-transform: uppercase;
+      color: var(--color);
+      margin-bottom: 24px;
+      transition: 0.5s;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff, #00ffff);
+      background-size: 400%;
+      z-index: -1;
+      border-radius: 50px;
+      animation: neon-border 4s linear infinite;
+    }
+
+    .btn:hover {
+      color: black;
+    }
+
+    .btn:active {
+      filter: brightness(0.7);
+      transform: scale(0.98);
+    }
+
+    @keyframes neon-border {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     footer {
-      margin-top: 20px;
+      margin-top: 50px;
       font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <h1>Deploy Mercedes</h1>
-  <p>After getting your session from the session site, press the button below to deploy on Heroku.</p>
-  <a href="https://heroku.com/deploy?template=Yhttps://github.com/betingrich3/Mercedes" class="button">Deploy to Heroku</a>
-  <p>Watch tutorials on YouTube:</p>
-  <a href="https://youtu.be/L_meuUMf0Hc?si=fDfxsIrqoXxKkL5j" class="button">YouTube Tutorial</a>
+  <h1>Deploy Mercedes Bot</h1>
+  <p>
+    After getting your session from the 
+    <a href="/pair.html" style="color: lightblue; text-decoration: none;">Session Site</a>, 
+    press the button below to deploy on Heroku.
+  </p>
+  <button class="btn" onclick="window.open('https://heroku.com/deploy')">Deploy to Heroku</button>
+  <p>You can catch tutorials on YouTube:</p>
+  <button class="btn" onclick="window.open('https://www.youtube.com')">Watch Tutorials</button>
 
-  <h2>Features Of Mercedes</h2>
-  <div class="neon-border">
-    <h3>1. Autostatusview</h3>
-    <p>Stay updated without manually opening your contacts' status updates. Mercedes views them for you automatically, saving time and effort.</p>
-  </div>
-  <div class="neon-border">
-    <h3>2. Music Video Downloader</h3>
-    <p>Leverage YouTube's API to download high-quality music and videos directly from the platform. Ideal for offline enjoyment.</p>
-  </div>
-  <div class="neon-border">
-    <h3>3. Access to GPT</h3>
-    <p>Get access to premium OpenAI ChatGPT services through the bot. Enjoy AI-powered conversations, assistance, and creative ideas.</p>
-  </div>
-  <div class="neon-border">
-    <h3>4. Wallpaper Downloader</h3>
-    <p>Search and download stunning 4K wallpapers to enhance the look of your devices with ease.</p>
-  </div>
-  <div class="neon-border">
-    <h3>5. Image Downloader</h3>
-    <p>Use advanced search tools to download any image you want from Bing or Google by simply providing a descriptive prompt.</p>
-  </div>
-  <div class="neon-border">
-    <h3>6. Logo Maker</h3>
-    <p>Design unique logos based on your prompts. Perfect for businesses, events, or personal branding.</p>
-  </div>
-  <div class="neon-border">
-    <h3>7. Anime Content</h3>
-    <p>Enjoy downloading anime images and videos with specific prompts, tailored to your favorite shows and characters.</p>
-  </div>
-  <div class="neon-border">
-    <h3>8. Group Management</h3>
-    <p>Remove all members, manage roles, and maintain order in your WhatsApp groups effortlessly using Mercedes.</p>
-  </div>
-  <div class="neon-border">
-    <h3>9. Antilink</h3>
-    <p>Ensure group security by detecting and removing unauthorized links. The bot also kicks the sender to maintain decorum.</p>
-  </div>
-  <div class="neon-border">
-    <h3>10. Autosticker</h3>
-    <p>Create fun and dynamic stickers on the go. Activate this feature to send stickers automatically during chats.</p>
-  </div>
-  <div class="neon-border">
-    <h3>11. Anti Bad Word</h3>
-    <p>Protect your group chats by automatically detecting and deleting messages containing inappropriate language.</p>
-  </div>
-  <div class="neon-border">
-    <h3>12. Media Downloader</h3>
-    <p>Seamlessly download media from MediaFire, Facebook, TikTok, Twitter, and Google Drive without watermarks. Ideal for quick sharing.</p>
-  </div>
-  <div class="neon-border">
-    <h3>13. Scheduled Messages</h3>
-    <p>Plan and automate your message delivery for birthdays, reminders, or group notifications.</p>
-  </div>
-  <div class="neon-border">
-    <h3>14. Weather Updates</h3>
-    <p>Get real-time weather forecasts directly on WhatsApp with accurate location-based information.</p>
-  </div>
-  <div class="neon-border">
-    <h3>15. Currency Converter</h3>
-    <p>Convert between currencies instantly. Perfect for travelers and international businesses.</p>
-  </div>
+  <h2>Features of Mercedes Bot</h2>
+  <ul>
+    <li data-number="1">
+      <b>Autostatusview:</b> The bot will automatically view all the status updates of your contacts, saving you time and effort.
+    </li>
+    <li data-number="2">
+      <b>Music Video Downloader:</b> Integrated with YouTube's API, this feature allows you to download music and videos directly to your device in high quality.
+    </li>
+    <li data-number="3">
+      <b>Access to ChatGPT:</b> Use the bot to connect to premium ChatGPT servers, enabling AI-driven conversations and content generation.
+    </li>
+    <li data-number="4">
+      <b>Wallpaper Downloads:</b> Get access to an extensive collection of stunning 4K wallpapers for your device, tailored to your preferences.
+    </li>
+    <li data-number="5">
+      <b>Image Downloads:</b> With proper prompts, the bot fetches high-quality images from BingCloud and Google for your personal or professional use.
+    </li>
+    <li data-number="6">
+      <b>Logo Making:</b> Generate professional-grade logos by providing the bot with a prompt or specific design requirements.
+    </li>
+    <li data-number="7">
+      <b>Anime Content:</b> Search for and download anime videos and images directly through the bot with simple prompts.
+    </li>
+    <li data-number="8">
+      <b>Group Management:</b> Manage your WhatsApp groups effectively by removing all members or enforcing rules like kicking users who share prohibited links.
+    </li>
+    <li data-number="9">
+      <b>Anti-Bad Words:</b> Automatically detects and removes offensive words in group chats, keeping your groups clean and respectful.
+    </li>
+    <li data-number="10">
+      <b>Media Downloads:</b> Download media from Facebook, TikTok, Twitter, MediaFire, and Google Drive links, often without watermarks.
+    </li>
+    <li data-number="11">
+      <b>Auto Sticker:</b> Automatically converts images and short videos into fun stickers for WhatsApp chats when activated.
+    </li>
+  </ul>
 
-  <p>Support the development:</p>
-  <a href="https://wa.me/254740007567" class="button">Send via MPesa</a>
+  <h2>Support</h2>
+  <button class="btn" onclick="window.open('https://wa.me/254740007567')">Send Me M-Pesa</button>
 
   <footer>
-    <p>Marisel Took Time To Make You Happy.</p>
+    Marisel Took Time To Make You Happy.
   </footer>
 </body>
 </html>
